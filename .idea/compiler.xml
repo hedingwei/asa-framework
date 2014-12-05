@@ -22,11 +22,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="WebAppTemplate" />
+        <module name="aas-framework" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="WebAppTemplate" target="1.7" />
+      <module name="aas-framework" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
