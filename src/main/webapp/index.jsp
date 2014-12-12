@@ -16,6 +16,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <jsp:forward page="_app/system/dashboard.do"></jsp:forward>
+        <jsp:forward page="_app/do/dashboard.do"></jsp:forward>
     </body>
 </html>

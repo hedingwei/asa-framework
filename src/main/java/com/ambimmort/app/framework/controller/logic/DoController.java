@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/system")
-public class SystemController {
+public class DoController {
 
     private Sigar sigar = new Sigar();
 
