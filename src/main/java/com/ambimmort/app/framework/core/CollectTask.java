@@ -24,10 +24,11 @@ public class CollectTask {
 
             Sample sample = RRD.getInstance().getSample();
             sample.setTime(Util.getTimestamp());
-            sample.setValue("memory", Application.getInstance().getMemoryResident()/1024.0/1024.0 + 0.0d);
+            sample.setValue("memory", Application.getInstance().getMemoryResident() / 1024.0 / 1024.0 + 0.0d);
             sample.setValue("memory-percent", ((double)Application.getInstance().getMemoryResident())/Application.getInstance().getMemoryActualTotal()+0.0d);
             sample.setValue("cpu", Application.getInstance().getCpuPercent()+0.0d);
-            System.out.println("done:"+sample.dump()) ;
+            sample.setValue("memory-heap",Application.getInstance().getMemoryHeap().getUsed()+0.0d);
+            sample.setValue("memory-nonheap",Application.getInstance().getMemoryNonHeap().getUsed()+0.0d);
             sample.update();
 
         } catch (IOException ex) {

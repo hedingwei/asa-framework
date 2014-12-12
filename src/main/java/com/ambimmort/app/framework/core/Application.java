@@ -107,6 +107,7 @@ public class Application {
         return sdf.parse(time);
     }
 
+
     public double getCpuPercent() {
         try {
             return sigar.getProcCpu(getPid()).getPercent();
@@ -347,6 +348,10 @@ public class Application {
     public int getObjectPendingFinalizationCount() {
         MemoryMXBean memBean = ManagementFactory.getMemoryMXBean();
         return memBean.getObjectPendingFinalizationCount();
+    }
+
+    public int getCurrentRunningThreads(){
+        return ManagementFactory.getThreadMXBean().getThreadCount();
     }
 
 }

@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="<%=application.getContextPath()%>/resources/css/fullcalendar.css"/>
     <link rel="stylesheet" href="<%=application.getContextPath()%>/resources/css/unicorn.main.css"/>
     <link rel="stylesheet" href="<%=application.getContextPath()%>/resources/css/unicorn.grey.css" class="skin-color"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <script src="<%=application.getContextPath()%>/resources/js/excanvas.min.js"></script>
+
     <script src="<%=application.getContextPath()%>/resources/js/jquery.min.js"></script>
     <script src="<%=application.getContextPath()%>/resources/js/jquery.ui.custom.js"></script>
     <script src="<%=application.getContextPath()%>/resources/js/bootstrap.min.js"></script>
@@ -23,13 +23,14 @@
     <script src="<%=application.getContextPath()%>/resources/js/fullcalendar.min.js"></script>
     <script src="<%=application.getContextPath()%>/resources/js/unicorn.js"></script>
     <script src="<%=application.getContextPath()%>/resources/js/unicorn.dashboard.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
 <body>
 <div id="header">
     <h1><a href="<%=application.getContextPath()%>/_app/do/system/dashboard.do">Application Template</a></h1>
 </div>
-<%@ include file="sidebar.jspf" %>
 
+<%@ include file="sidebar.jspf"%>
 <div id="style-switcher">
     <i class="icon-arrow-left icon-white"></i>
     <span>Style:</span>
@@ -40,33 +41,63 @@
 
 <div id="content">
     <div id="content-header">
-        <h1>系统参数 (PID:${pid})</h1>
+        <h1>基础信息 (PID:${pid})</h1>
     </div>
     <div id="breadcrumb">
         <a href="<%=application.getContextPath()%>/_app/do/system/dashboard.do" title="Go to Home" class="tip-bottom"><i
                 class="icon-home"></i> 首页</a>
-        <a href="#" class="current">系统参数</a>
+        <a href="#" class="current">基础信息</a>
     </div>
 
     <div class="container-fluid">
         <table class="table table-bordered table-striped">
+            <thead>
+            <th style="width:110px"></th>
+            <th></th>
+            </thead>
             <tbody>
-            <c:forEach var="i" begin="1" end="${fn:length(args)}">
-                <tr>
-                    <td>
-                                <span>
-                                        ${args[i]}
-                                </span>
-                    </td>
-                </tr>
-            </c:forEach>
+            <tr>
+                <td><Strong>组ID</Strong></td>
+                <td><span>${groupId}</span></td>
+            </tr>
+            <tr>
+                <td><Strong>应用程序ID:</Strong></td>
+                <td><span>${artifactId}</span></td>
+            </tr>
+            <tr>
+                <td><Strong>版本:</Strong></td>
+                <td><span>${version}</span></td>
+            </tr>
+            <tr>
+                <td><Strong>构建时间:</Strong></td>
+                <td><span>${buildtime}</span></td>
+            </tr>
+            <tr>
+                <td><Strong>运行时长:</Strong></td>
+                <td><span>${elapsedFromStart}</span></td>
+            </tr>
+            <tr>
+                <td><Strong>当前工作目录:</Strong></td>
+                <td><span>${cwd}</span></td>
+            </tr>
+            <tr>
+                <td><Strong>当前使用内存:</Strong></td>
+                <td><span>${mem_resident}Mb</span></td>
+            </tr>
+            <tr>
+                <td><Strong>当前内存占比:</Strong></td>
+                <td><span>${mem_percent}%</span></td>
+            </tr>
+            <tr>
+                <td><Strong>logs目录分析：</Strong></td>
+                <td><span>${logs_dir_usage}</span></td>
+            </tr>
             </tbody>
         </table>
 
     </div>
 
+
 </div>
-
-
 </body>
 </html>

@@ -58,12 +58,12 @@
 
 <div id="content">
     <div id="content-header">
-        <h1>General Info (PID:${pid})</h1>
+        <h1>JVM属性 (PID:${pid})</h1>
     </div>
     <div id="breadcrumb">
         <a href="<%=application.getContextPath()%>/_app/system/dashboard.do" title="Go to Home" class="tip-bottom"><i
-                class="icon-home"></i> Home</a>
-        <a href="#" class="current">General Info</a>
+                class="icon-home"></i> 首页</a>
+        <a href="#" class="current">JVM属性</a>
     </div>
 
     <div class="container-fluid">
@@ -72,40 +72,7 @@
             <th style="width:50px"></th>
             <th></th>
             </thead>
-
             <tbody>
-            <tr>
-                <td><Strong>组ID</Strong></td>
-                <td><span>${groupId}</span></td>
-            </tr>
-            <tr>
-                <td><Strong>应用程序ID:</Strong></td>
-                <td><span>${artifactId}</span></td>
-            </tr>
-            <tr>
-                <td><Strong>版本:</Strong></td>
-                <td><span>${version}</span></td>
-            </tr>
-            <tr>
-                <td><Strong>构建时间:</Strong></td>
-                <td><span>${buildtime}</span></td>
-            </tr>
-            <tr>
-                <td><Strong>当前工作目录:</Strong></td>
-                <td><span>${cwd}</span></td>
-            </tr>
-            <tr>
-                <td><Strong>当前内存使用:</Strong></td>
-                <td><span>${mem_resident}</span></td>
-            </tr>
-            <tr>
-                <td><Strong>当前内存占比:</Strong></td>
-                <td><span>${mem_percent}%</span></td>
-            </tr>
-            <tr>
-                <td><Strong>logs目录分析：</Strong></td>
-                <td><span>${logs_dir_usage}</span></td>
-            </tr>
             <c:forEach var="item" items="${syspros}">
                 <tr>
                     <td><Strong>${item.key}:</Strong></td>

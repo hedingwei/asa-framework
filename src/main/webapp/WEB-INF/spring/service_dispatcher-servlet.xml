@@ -27,7 +27,6 @@
     <bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
         <property name="supportedMediaTypes">
             <list>
-                <value>text/json;charset=UTF-8</value><!--为消息转换器配置可处理的类型和字符集，不指定字符集的话，中文会没有办法传入-->
                 <value>application/json;charset=UTF-8</value>
             </list>
         </property>

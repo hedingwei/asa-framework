@@ -55,12 +55,14 @@ public class RRD {
             rrdDef.setStep(step);
             rrdDef.addDatasource("memory", DsType.GAUGE, step * 2, 0, Double.NaN);
             rrdDef.addDatasource("memory-percent",DsType.GAUGE,step*2,0,Double.NaN);
+            rrdDef.addDatasource("memory-heap",DsType.GAUGE,step*2,0,Double.NaN);
+            rrdDef.addDatasource("memory-nonheap",DsType.GAUGE,step*2,0,Double.NaN);
             rrdDef.addDatasource("cpu", DsType.GAUGE, step*2, 0, Double.NaN);
+            rrdDef.addDatasource("threads", DsType.GAUGE, step*2, 0, Double.NaN);
             /**
              * 每分钟一个存档, 两年共计 2*365*24*60
              */
-            rrdDef.addArchive(ConsolFun.AVERAGE, 0.5, 1,  6* 20);
-
+            rrdDef.addArchive(ConsolFun.AVERAGE, 0.5, 1, 6* 30);
 
             System.out.println("created 5 add Archinve:" + rrdDef.getArcCount());
             // Create and check the database
@@ -85,10 +87,14 @@ public class RRD {
             rrdDef.setStartTime(start);
             rrdDef.setVersion(2);
             rrdDef.setStep(step);
-            rrdDef.addDatasource("memory", DsType.GAUGE, step*2, 0, Double.NaN);
+            rrdDef.addDatasource("memory", DsType.GAUGE, step * 2, 0, Double.NaN);
+            rrdDef.addDatasource("memory-percent", DsType.GAUGE, step * 2, 0, Double.NaN);
+            rrdDef.addDatasource("memory-heap", DsType.GAUGE, step * 2, 0, Double.NaN);
+            rrdDef.addDatasource("memory-nonheap", DsType.GAUGE, step * 2, 0, Double.NaN);
             rrdDef.addDatasource("cpu", DsType.GAUGE, step*2, 0, Double.NaN);
+            rrdDef.addDatasource("threads", DsType.GAUGE, step*2, 0, Double.NaN);
 
-            rrdDef.addArchive(ConsolFun.AVERAGE, 0.5, 1, 20*6);
+            rrdDef.addArchive(ConsolFun.AVERAGE, 0.5, 1, 6* 30);
         }
 
         try {
