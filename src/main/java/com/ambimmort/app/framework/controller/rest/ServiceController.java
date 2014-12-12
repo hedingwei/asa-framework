@@ -36,7 +36,7 @@ public class ServiceController {
                     ConsolFun.AVERAGE, time - Integer.parseInt(length) + Integer.parseInt(res), time - Integer.parseInt(res), Integer.parseInt(res));
             FetchData fetchData = request.fetchData();
 
-            System.out.println(fetchData.dump());
+//            System.out.println(fetchData.dump());
 
             {
                 long[] times = fetchData.getTimestamps();
