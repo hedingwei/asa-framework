@@ -291,7 +291,7 @@
                                 <echo file="target/jsw/${project.artifactId}/etc/build.properties"
                                       message="version=${project.version}${line.separator}" append="true"/>
                                 <echo file="target/jsw/${project.artifactId}/etc/build.properties"
-                                      message="framework.http.port=${framework.http.port}${line.separator}" append="true"/>
+                                      message="framework.http.port=${asa.framework.http.port}${line.separator}" append="true"/>
                                 <unzip src="target/jsw/${project.artifactId}/lib/libsigar.zip" dest="target/jsw/${project.artifactId}/lib" encoding="native-encoding" />
                             </tasks>
                         </configuration>
@@ -300,7 +300,7 @@
                         </goals>
                     </execution>
                     <execution>
-                        <id>cpdd</id>
+                        <id>copy-war</id>
                         <phase>package</phase>
                         <configuration>
                             <tasks>
