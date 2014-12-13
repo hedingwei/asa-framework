@@ -6,7 +6,6 @@
 package com.ambimmort.app.framework.core;
 
 import com.codahale.metrics.MetricRegistry;
-import com.codahale.metrics.health.HealthCheckRegistry;
 import net.sf.json.JSONArray;
 import org.apache.log4j.Logger;
 import org.apache.maven.model.Model;
@@ -20,7 +19,9 @@ import java.lang.management.MemoryMXBean;
 import java.lang.management.MemoryUsage;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Date;
+import java.util.Map;
+import java.util.Properties;
 
 /**
  * @author hedingwei
@@ -55,22 +56,8 @@ public class Application {
         try {
             env = getSigar().getProcEnv(getPid());
         } catch (SigarException ex) {
-
             logger.error(ex);
         }
-
-        Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                try {
-                    getMetricRegistry().meter("rate-mem").mark(getSigar().getProcMem(getSigar().getPid()).getResident());
-                    metricRegistry.histogram("mem").update(getSigar().getProcMem(getSigar().getPid()).getResident());
-                } catch (SigarException ex) {
-                    logger.error(ex);
-                }
-            }
-        }, 1000, 1000);
     }
 
     public static Application getInstance() {
