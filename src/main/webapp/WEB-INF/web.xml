@@ -8,19 +8,16 @@
         <servlet-name>service_dispatcher</servlet-name>
         <url-pattern>/_app/service/*</url-pattern>
     </servlet-mapping>
+
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-    <display-name>Spring MVC Application</display-name>
+    <display-name>Ambimmort Standalone Application</display-name>
     <listener>
         <description>ServletContextListener</description>
         <listener-class>com.ambimmort.app.framework.core.ApplicationServletListener</listener-class>
-    </listener>
-    <listener>
-        <description>ServletContextListener</description>
-        <listener-class>com.ambimmort.app.framework.core.AppMetricsServletListener</listener-class>
     </listener>
     <servlet>
         <servlet-name>do_dispatcher</servlet-name>

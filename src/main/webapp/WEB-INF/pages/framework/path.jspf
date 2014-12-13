@@ -1,0 +1,9 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: hedingwei
+  Date: 2014/12/3
+  Time: 15:09
+  To change this template use File | Settings | File Templates.
+--%>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<a href="<%=application.getContextPath()%>/_app/system/dashboard.do" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> 首页</a>

@@ -33,8 +33,6 @@ public class Application {
 
     private MetricRegistry metricRegistry = new MetricRegistry();
 
-    private HealthCheckRegistry healthCheckRegistry = new HealthCheckRegistry();
-
     private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     private String version = null;
@@ -83,16 +81,11 @@ public class Application {
     }
 
     public Sigar getSigar() {
-
         return sigar;
     }
 
     public MetricRegistry getMetricRegistry() {
         return metricRegistry;
-    }
-
-    public HealthCheckRegistry getHealthCheckRegistry() {
-        return healthCheckRegistry;
     }
 
     public Model getPomModel() {
@@ -106,7 +99,6 @@ public class Application {
     public Date time(String time) throws ParseException {
         return sdf.parse(time);
     }
-
 
     public double getCpuPercent() {
         try {
@@ -148,7 +140,6 @@ public class Application {
 
     public String[] getArgs() {
         try {
-
             return sigar.getProcArgs(getPid());
         } catch (SigarException ex) {
             logger.error(ex);

@@ -1,0 +1,11 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: hedingwei
+  Date: 2014/12/3
+  Time: 15:09
+  To change this template use File | Settings | File Templates.
+--%>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<div id="header">
+  <h1><a href="<%=application.getContextPath()%>/_app/do/system/dashboard.do">Application Template</a></h1>
+</div>

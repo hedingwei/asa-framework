@@ -6,11 +6,6 @@
 package com.ambimmort.app.framework.controller.logic;
 
 import com.ambimmort.app.framework.core.Application;
-
-import java.text.Format;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 import net.sf.json.JSONObject;
 import org.hyperic.sigar.DirUsage;
 import org.hyperic.sigar.ProcMem;
@@ -19,6 +14,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/system")
@@ -45,20 +44,15 @@ public class SystemController {
     public String viewGeneral(ModelMap model) {
 
         try {
-
-
             Map<String, String> map = new HashMap<String, String>();
             for (String key : System.getProperties().stringPropertyNames()) {
                 map.put(key, System.getProperties().getProperty(key));
             }
             model.addAttribute("syspros", map);
-
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "general";
+        return "systeminfo/general";
     }
 
     @RequestMapping(value = "/args.do", method = RequestMethod.GET)
@@ -74,17 +68,17 @@ public class SystemController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "args";
+        return "systeminfo/args";
     }
 
     @RequestMapping(value = "/memory.do", method = RequestMethod.GET)
     public String viewMemory(ModelMap model) {
-        return "memory";
+        return "systeminfo/memory";
     }
 
     @RequestMapping(value = "/cpu.do", method = RequestMethod.GET)
     public String viewCpu(ModelMap model) {
-        return "cpu";
+        return "systeminfo/cpu";
     }
 
 
@@ -121,7 +115,7 @@ public class SystemController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "basic";
+        return "systeminfo/basic";
     }
 
 

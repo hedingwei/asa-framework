@@ -16,6 +16,9 @@
         <metrics.version>3.1.0</metrics.version>
         <sigar.version>1.6.4</sigar.version>
         <spring.version>4.1.2.RELEASE</spring.version>
+        <asa.framework.http.port>8081</asa.framework.http.port>
+        <asa.memory.initialMemorySize>32M</asa.memory.initialMemorySize>
+        <asa.memory.maxMemorySize>64M</asa.memory.maxMemorySize>
     </properties>
 
     <dependencies>
@@ -95,7 +98,6 @@
             <artifactId>jackson-mapper-asl</artifactId>
             <version>1.9.13</version>
         </dependency>
-
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
@@ -198,7 +200,7 @@
                             <mainClass>org.apache.tomcat.maven.runner.Tomcat7RunnerCli</mainClass>
                             <commandLineArguments>
                                 <commandLineArgument>-httpPort</commandLineArgument>
-                                <commandLineArgument>8081</commandLineArgument>
+                                <commandLineArgument>${asa.framework.http.port}</commandLineArgument>
                             </commandLineArguments>
                             <platforms>
                                 <platform>jsw</platform>
@@ -240,11 +242,8 @@
                                 </generatorConfiguration>
                             </generatorConfigurations>
                             <jvmSettings>
-                                <initialMemorySize>128M</initialMemorySize>
-                                <maxMemorySize>256M</maxMemorySize>
-                                <extraArguments>
-                                    <extraArgument>-server</extraArgument>
-                                </extraArguments>
+                                <initialMemorySize>${asa.memory.initialMemorySize}</initialMemorySize>
+                                <maxMemorySize>${asa.memory.maxMemorySize}</maxMemorySize>
                             </jvmSettings>
                         </daemon>
                     </daemons>
@@ -291,6 +290,8 @@
                                       message="artifactId=${project.artifactId}${line.separator}" append="true"/>
                                 <echo file="target/jsw/${project.artifactId}/etc/build.properties"
                                       message="version=${project.version}${line.separator}" append="true"/>
+                                <echo file="target/jsw/${project.artifactId}/etc/build.properties"
+                                      message="framework.http.port=${framework.http.port}${line.separator}" append="true"/>
                                 <unzip src="target/jsw/${project.artifactId}/lib/libsigar.zip" dest="target/jsw/${project.artifactId}/lib" encoding="native-encoding" />
                             </tasks>
                         </configuration>
@@ -326,12 +327,8 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <executable>${project.build.directory}/jsw/${project.artifactId}/bin/${project.artifactId}.bat
-                    </executable>
+                    <executable>${project.build.directory}/jsw/${project.artifactId}/bin/${project.artifactId}.bat</executable>
                     <workingDirectory>target/jsw/${project.artifactId}</workingDirectory>
-                    <arguments>
-                        <argument>console</argument>
-                    </arguments>
                 </configuration>
             </plugin>
         </plugins>
